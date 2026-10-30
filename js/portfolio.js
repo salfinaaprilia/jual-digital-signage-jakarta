@@ -23,7 +23,7 @@ const PORTFOLIO = [
   const render = () => {
     pf.innerHTML = PORTFOLIO.length
       ? PORTFOLIO.map((x) => `<article class="pfc" role="button" tabindex="0" data-img="${x.img}" data-t="${esc(x.title)}" aria-label="Lihat foto ${esc(x.title)}">
-      <div class="pfc-img"><img src="${x.img}" srcset="${x.img.replace(/(\.\w+)$/, "-640$1")} 640w, ${x.img.replace(/(\.\w+)$/, "-800$1")} 800w, ${x.img} 1000w" sizes="(max-width:640px) 92vw, 400px" alt="${esc(x.title)}" loading="lazy"></div>
+      <div class="pfc-img"><img src="${x.img}" srcset="${x.img.replace(/(\.\w+)$/, "-640$1")} 640w, ${x.img.replace(/(\.\w+)$/, "-800$1")} 800w, ${x.img} 1000w" sizes="(max-width:640px) calc(100vw - 52px), (max-width:900px) 45vw, (max-width:1200px) 30vw, 390px" alt="${esc(x.title)}" loading="lazy"></div>
       <div class="pfc-b"><h2>${esc(x.title)}</h2><p>${esc(x.desc)}</p></div></article>`).join("")
       : `<p class="empty">Belum ada contoh portofolio. Hubungi kami untuk melihat studi kasus lainnya.</p>`;
   };

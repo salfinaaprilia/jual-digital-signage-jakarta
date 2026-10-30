@@ -9,7 +9,7 @@
   const small = (u) => u.replace(/(\.\w+)$/, "-640$1");
   const srcset = (u, w) => `${small(u)} 640w, ${u.replace(/(\.\w+)$/, "-800$1")} 800w, ${u} ${w}w`;
   /* Produk tanpa foto (series baru & accessories): placeholder konsisten dengan fallback gambar existing */
-  const media = (p) => p.img ? `<img src="${imgSrc(p)}" srcset="${srcset(imgSrc(p), 1000)}" sizes="(max-width:640px) 92vw, 380px" alt="${esc(p.name)}" loading="lazy" decoding="async">` : `<span class="imgfb" role="img" aria-label="${esc(p.name)}">${esc(p.name)}</span>`;
+  const media = (p) => p.img ? `<img src="${imgSrc(p)}" srcset="${srcset(imgSrc(p), 1000)}" sizes="${p.imgSizes || "(max-width:640px) calc(100vw - 78px), (max-width:900px) 40vw, (max-width:1200px) 27vw, 350px"}" alt="${esc(p.name)}" loading="lazy" decoding="async">` : `<span class="imgfb" role="img" aria-label="${esc(p.name)}">${esc(p.name)}</span>`;
   /* Badge teks nama brand di atas nama produk (logo gambar brand sudah tidak dipakai lagi) */
   const brandLogo = (b) => `<span class="pbrand">${esc(b)}</span>`;
   /* p.href / p.cta opsional: menimpa tujuan link & teks tombol (dipakai kartu beranda yang menuju halaman merek).
@@ -59,7 +59,7 @@
   const pdImg = document.querySelector(".pdimg img");
   if (pdImg) {
     const pid = location.pathname.split("/").pop().replace(/\.html?$/, ""), p = (window.PRODUCTS || []).find((x) => x.id === pid);
-    if (p && p.img) { pdImg.parentNode.dataset.name = p.name; pdImg.srcset = srcset(imgSrc(p), 1000); pdImg.sizes = "(max-width:900px) 92vw, 560px"; pdImg.src = imgSrc(p); }
+    if (p && p.img) { pdImg.parentNode.dataset.name = p.name; pdImg.srcset = srcset(imgSrc(p), 1000); pdImg.sizes = "(max-width:640px) calc(100vw - 80px), (max-width:900px) 88vw, (max-width:1200px) 41vw, 545px"; pdImg.src = imgSrc(p); }
     if (pdImg.complete && pdImg.naturalWidth === 0 && pdImg.getAttribute("src")) fallback(pdImg);
   }
 
@@ -88,7 +88,7 @@
           metaHtml: `<span class="fmeta">${n} produk · Garansi resmi</span>`,
           extraHtml: chips ? `<div class="fchips">${chips}</div>` : "",
           /* Arahkan ke halaman produk merek tersebut, bukan detail model */
-          href: `${BASE}products.html#${k}`, cta: `Lihat Produk ${p.brand}` };
+          href: `${BASE}products.html#${k}`, cta: `Lihat Produk ${p.brand}`, imgSizes: "(max-width:640px) calc(100vw - 48px), (max-width:900px) 46vw, (max-width:1200px) 30vw, 400px" };
       });
       grid.innerHTML = list.length ? list.map((p) => card(p)).join("") : `<p class="empty">Produk tidak ditemukan. Ubah filter atau hubungi kami untuk rekomendasi.</p>`;
       bindWA();
@@ -219,7 +219,7 @@
   /* ---- Solusi (beranda) ---- */
   const sol = document.getElementById("solutions");
   /* Kartu solusi: tiap kartu menuju produk yang relevan (x.href), teks petunjuk (x.cta) muncul saat hover */
-  if (sol) sol.innerHTML = window.SOLUTIONS.map((x) => `<a class="solc" href="${BASE}${x.href || "products.html"}" aria-label="${esc(x.cta || "Lihat produk")}: ${esc(x.title)}"><img src="${BASE}${x.img}" srcset="${srcset(BASE + x.img, 1200)}" sizes="(max-width:640px) 92vw, (max-width:1100px) 50vw, 600px" alt="${esc(x.title)}" loading="lazy"><div class="sol-t"><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p><span class="sol-more">${esc(x.cta || "Lihat produk")} <span aria-hidden="true">→</span></span></div></a>`).join("");
+  if (sol) sol.innerHTML = window.SOLUTIONS.map((x, i) => `<a class="solc" href="${BASE}${x.href || "products.html"}" aria-label="${esc(x.cta || "Lihat produk")}: ${esc(x.title)}"><img src="${BASE}${x.img}" srcset="${srcset(BASE + x.img, 1200)}" sizes="${i === 0 || i === 5 ? "(max-width:640px) calc(100vw - 52px), (max-width:900px) 92vw, 46vw" : "(max-width:640px) calc(100vw - 52px), (max-width:900px) 45vw, 22vw"}" alt="${esc(x.title)}" loading="lazy"><div class="sol-t"><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p><span class="sol-more">${esc(x.cta || "Lihat produk")} <span aria-hidden="true">→</span></span></div></a>`).join("");
 
   /* ---- Artikel: data dari window.ARTICLES (js/data.js) ---- */
   const ART_ARROW = " →";
