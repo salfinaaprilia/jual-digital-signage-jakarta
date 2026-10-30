@@ -1,0 +1,14 @@
+/* Splash screen bersama untuk semua halaman (dibuat oleh js/splash.js) */
+#splash{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:linear-gradient(180deg,#EAF2FF,#fff);opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s}
+:root[data-theme="dark"] #splash{background:linear-gradient(180deg,#0b2540,#071426)}
+#splash.out{opacity:0;visibility:hidden;pointer-events:none}
+.splash-in{text-align:center;padding:20px;animation:sIn .5s ease both}
+.splash-in img{width:170px;height:auto;margin:0 auto 14px;display:block;padding:0;border-radius:8px}
+.splash-in p{font-size:13px;letter-spacing:.04em;color:#667085}
+:root[data-theme="dark"] .splash-in p{color:#A9BAD3}
+.bar{display:block;width:120px;height:2px;margin:22px auto 0;background:rgba(7,88,217,.18);position:relative;overflow:hidden;border-radius:2px}
+.bar::after{content:"";position:absolute;inset:0;width:40%;background:#0758D9;animation:sLoad .9s ease-in-out infinite}
+:root[data-theme="dark"] .bar::after{background:#3D8BFF}
+@keyframes sIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes sLoad{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
+@media(prefers-reduced-motion:reduce){.splash-in,.bar::after{animation:none}}

@@ -1,0 +1,44 @@
+/* =========================================================================
+   ACCENT.CSS — Uji coba aksen emas (layer paling akhir)
+   Konsep: navy sebagai dasar, biru untuk elemen interaktif, emas sebagai aksen
+   (±10%) untuk tombol konsultasi utama, angka langkah, dan garis penanda judul.
+   Untuk membatalkan: hapus baris <link ... css/accent.css> di setiap halaman.
+   ========================================================================= */
+:root{
+  --gold:#D9A441;      /* aksen utama: latar tombol, garis, titik aktif */
+  --gold2:#C38D2C;     /* hover */
+  --gold-soft:#FBF3E2; /* latar lembut kotak angka */
+  --gold-ink:#7A5410;  /* teks emas di atas latar terang (kontras >= 4.5:1) */
+  --navy:#071A36;
+}
+:root[data-theme="dark"]{
+  --gold-soft:rgba(217,164,65,.14);
+  --gold-ink:#F0C46E;
+}
+
+/* Latar netral sedikit hangat (mode terang saja) agar section tidak serba kebiruan */
+:root:not([data-theme="dark"]){--alt:#F8F7F4}
+:root:not([data-theme="dark"]) .sec.soft{background:#F8F7F4}
+
+/* Tombol konsultasi utama (WhatsApp) & tombol CTA: emas dengan teks navy */
+.btn-p[data-wa],.cta .btn-w{background:var(--gold);border-color:var(--gold);color:var(--navy)}
+.btn-p[data-wa]:hover,.cta .btn-w:hover{background:var(--gold2);border-color:var(--gold2);color:var(--navy)}
+
+/* Label kecil (eyebrow): tidak lagi pil biru; teks navy + garis emas pendek */
+.sec .ctr>.eyebrow,.sec .head>.eyebrow,.sector-section .eyebrow,.choosing-copy .eyebrow,.feat .eyebrow,.sec.soft .eyebrow{
+  display:inline-flex;align-items:center;gap:10px;padding:0;border-radius:0;background:none;color:var(--ink)}
+.sec .ctr>.eyebrow::before,.sec .head>.eyebrow::before,.sector-section .eyebrow::before,.choosing-copy .eyebrow::before,.feat .eyebrow::before{
+  content:"";width:22px;height:2px;border-radius:2px;background:var(--gold)}
+.hero2 .eyebrow,.pf-hero .eyebrow{color:#F2C978}
+
+/* Angka langkah: emas lembut */
+.choosing-step>span{background:var(--gold-soft);color:var(--gold-ink)}
+.choosing-step:hover>span{background:var(--gold);color:var(--navy)}
+.choosing-step:not(:last-child)::before{background:linear-gradient(var(--gold-soft),transparent)}
+
+/* Titik slider hero */
+.dots button.on{background:var(--gold)}
+
+/* Banner CTA: navy pekat (lebih mewah dari gradien biru cerah) dengan pendar emas halus */
+.cta{background:linear-gradient(120deg,#06152C,#0A2650 70%,#0B2F63)}
+.cta::after{background:radial-gradient(closest-side,rgba(217,164,65,.22),transparent)}

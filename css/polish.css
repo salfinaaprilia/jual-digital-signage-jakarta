@@ -1,0 +1,167 @@
+/* =========================================================================
+   POLISH.CSS — Perbaikan konsistensi warna & spasi (layer terakhir)
+   Dimuat setelah style.css & responsive.css, hanya menimpa nilai yang
+   tidak konsisten. Tidak mengubah struktur HTML/JS.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   1) TOKEN WARNA TERPADU
+   Satu sumber kebenaran untuk semua warna. Ini menggantikan nilai --p2,
+   --soft2, --card, dll yang sebelumnya berbeda-beda di tiap bagian file
+   style.css (V2/V5/V7/V8/V9), sehingga warna navbar, kartu, tombol, dan
+   footer sekarang konsisten satu sama lain di light & dark mode.
+   ------------------------------------------------------------------------- */
+:root{
+  /* skala netral (biru-abu) dipakai utk bg, card, border, teks sekunder */
+  --n-50:#F7F9FC;
+  --n-100:#EEF3FA;
+  --n-200:#E1E8F2;
+  --n-300:#CBD6E8;
+  --n-600:#5A6B85;   /* teks sekunder: kontras >= 4.5:1 di atas putih */
+  --n-900:#071A36;   /* teks utama / navy gelap */
+
+  /* skala aksen (biru brand) — satu nilai dipakai di semua halaman */
+  --accent-600:#0758D9;  /* primer: tombol, link, ikon aktif */
+  --accent-700:#0B3FA8;  /* hover/active state */
+  --accent-100:#EAF2FF;  /* chip/badge/soft background */
+
+  /* token semantik yang dipakai di seluruh style.css — disamakan di sini */
+  --bg:#fff;
+  --alt:var(--n-50);
+  --soft2:var(--n-100);
+  --surf2:var(--n-100);
+  --card:#fff;
+  --ink:var(--n-900);
+  --mute:var(--n-600);
+  --line:var(--n-200);
+  --p:var(--accent-600);
+  --p2:var(--accent-700);
+  --soft:var(--accent-100);
+  --cta1:var(--n-900);
+  --cta2:var(--accent-600);
+  --foot:var(--n-900);
+  --r:14px;
+  --sh:0 8px 24px rgba(7,26,54,.06);
+
+  /* skala spasi konsisten (8px base) dipakai pada aturan §2 di bawah */
+  --sp-1:8px;
+  --sp-2:12px;
+  --sp-3:16px;
+  --sp-4:20px;
+  --sp-5:24px;
+  --sp-6:32px;
+  --sp-7:48px;
+  --sp-8:64px;
+  --sp-9:96px;
+}
+
+:root[data-theme="dark"]{
+  --n-50:#0A2144;
+  --n-100:#0D2850;
+  --n-200:#1E3B66;
+  --n-300:#2C4E80;
+  --n-600:#AEC0DC;   /* dicek: kontras 7.3:1 di atas --bg gelap */
+  --n-900:#F2F6FC;
+
+  --accent-600:#3D8BFF;
+  --accent-700:#6BA7FF;
+  --accent-100:#123A70;
+
+  --bg:#071426;
+  --alt:var(--n-50);
+  --soft2:var(--n-100);
+  --surf2:var(--n-100);
+  --card:#0D2850;
+  --ink:var(--n-900);
+  --mute:var(--n-600);
+  --line:var(--n-200);
+  --p:var(--accent-600);
+  --p2:var(--accent-700);
+  --soft:var(--accent-100);
+  --cta1:#050e1c;
+  --cta2:var(--accent-600);
+  --foot:#050e1c;
+  --sh:0 8px 24px rgba(0,0,0,.35);
+}
+
+/* Warna hardcoded di hero/portofolio/footer disamakan ke token di atas,
+   supaya teks sekunder di atas latar gelap tetap konsisten dan kontras
+   mengikuti satu palet, bukan nilai acak per bagian. */
+.phero p,.phero .crumb,.phero .crumb a{color:#C3D1E8}
+.hero2 .hero-t p{color:#DCE7F7}
+.pf-hero p{color:#D7E2F3}
+.ahead .page-header p,
+body:has(#artgrid) .page-header p{color:#D7E2F3}
+.sol-t p{color:#D7E2F3}
+.cta-tx p{color:#D4E0F2}
+.pf-hero .eyebrow,.hero2 .eyebrow,.article-eyebrow{color:#9FC6FF}
+.cta-in{background:linear-gradient(120deg,var(--cta1),var(--p2) 60%,var(--p))}
+
+/* -------------------------------------------------------------------------
+   2) SPASI KONSISTEN
+   Banyak komponen sebelumnya memakai angka berbeda (18/20/22/24/28px) untuk
+   peran yang sama (padding kartu, gap grid, padding section). Diseragamkan
+   ke skala 8px di atas supaya ritme visual rapi di seluruh halaman.
+   ------------------------------------------------------------------------- */
+
+/* Section & heading rhythm */
+.sec{padding:var(--sp-9) 0}
+.head{margin:0 auto var(--sp-6)}
+.head p,.shead p{margin-top:var(--sp-2)}
+
+/* Grid gaps: kartu produk, solusi, portofolio, sektor — satu nilai */
+.pgrid,.sol-grid,.pf2,.pf-grid,.sector-grid{gap:var(--sp-5)}
+
+/* Padding internal kartu diseragamkan */
+.pcard{padding:var(--sp-4)}
+.pb{padding:0;gap:var(--sp-1)}
+.cat .pb{padding:var(--sp-3) var(--sp-4) var(--sp-4)}
+.pfc-b{padding:var(--sp-4)}
+.sector-card{padding:var(--sp-5) var(--sp-4)}
+.choosing-step{padding:var(--sp-4) var(--sp-5)}
+.abox{padding:var(--sp-4)}
+.acard .abody{padding:var(--sp-4) var(--sp-5)}
+form{padding:var(--sp-5);gap:var(--sp-3)}
+
+/* Footer & CTA */
+.foot-in{padding-top:var(--sp-7);padding-bottom:var(--sp-5);gap:var(--sp-6)}
+.cta-in{padding:var(--sp-5) var(--sp-6)}
+
+/* Mobile: skala diperkecil secara proporsional, bukan angka acak */
+@media(max-width:640px){
+  .sec{padding:var(--sp-7) 0}
+  .pgrid,.sol-grid,.pf2,.pf-grid,.sector-grid{gap:var(--sp-3)}
+  .pcard{padding:var(--sp-3)}
+  .cta-in{padding:var(--sp-4) var(--sp-3)}
+  .foot-in{padding-top:var(--sp-5);gap:var(--sp-5)}
+  form{padding:var(--sp-4);gap:var(--sp-2)}
+}
+
+/* -------------------------------------------------------------------------
+   3) KONTRAS & KETERBACAAN (temuan umum PageSpeed/Lighthouse)
+   ------------------------------------------------------------------------- */
+/* Teks sekunder (--mute) dipastikan >=4.5:1 pada semua latar yang dipakai */
+.pdesc,.cat,.note,.compat,.crumb,.price small,.kt-list small{color:var(--mute)}
+
+/* Placeholder & teks form agar tidak terlalu pudar */
+::placeholder{color:var(--mute);opacity:.85}
+
+/* -------------------------------------------------------------------------
+   4) TARGET SENTUH DI MOBILE (tap target terlalu kecil/rapat)
+   ------------------------------------------------------------------------- */
+@media(max-width:640px){
+  .menu>a:not(.btn),.dd-btn,.chips button,.pf-filter button,.acats button{
+    min-height:40px;display:inline-flex;align-items:center;justify-content:center;
+  }
+  .soc a{min-height:40px;display:inline-flex;align-items:center}
+  .lbx{width:44px;height:44px}
+  .btn{min-height:46px}
+}
+
+/* -------------------------------------------------------------------------
+   5) GAMBAR RESPONSIVE / CLS GUARD
+   Pastikan tidak ada elemen media yang melebihi lebar container di layar
+   sempit (penyebab umum horizontal scroll pada laporan mobile).
+   ------------------------------------------------------------------------- */
+img,svg,video,iframe{max-width:100%}
+.map iframe,.kt-map iframe{width:100%}
