@@ -4,33 +4,71 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>
-      Jual Digital Signage Indonesia | Samsung, LG, Hikvision
+      Jual Digital Signage Jakarta | Samsung, LG, Hikvision Resmi
     </title>
-    <meta name="description" content="Cari digital signage untuk kantor, sekolah, retail, dan rumah sakit. Temukan pilihan professional display Samsung, LG, dan Hikvision dari Cahaya Mustika.">
+    <meta name="description" content="Jual digital signage Jakarta: Samsung, LG, dan Hikvision bergaransi resmi untuk kantor, retail, restoran, dan kampus. Kirim ke seluruh Indonesia. Minta harga.">
     <link href="assets/logo/favicon.webp" rel="icon" type="image/webp">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-    <link href="css/splash.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/responsive.css"
-    <link href="css/polish.css" rel="stylesheet">
-    <script src="js/splash.js"></script>
-    <link rel="canonical" href="https://evandwika.github.io/Digital-Signage/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" as="image" href="assets/images/hero/foto1.webp" imagesrcset="assets/images/hero/foto1-768.webp 768w, assets/images/hero/foto1-1280.webp 1280w, assets/images/hero/foto1.webp 1919w" imagesizes="100vw" fetchpriority="high">
+    <style id="splash-css">#splash{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:linear-gradient(180deg,#EAF2FF,#fff);opacity:1;visibility:visible;transition:opacity .3s ease,visibility .3s}:root[data-theme="dark"] #splash{background:linear-gradient(180deg,#0b2540,#071426)}#splash.out{opacity:0;visibility:hidden;pointer-events:none}.splash-in{text-align:center;padding:20px;animation:sIn .5s ease both}.splash-in img{width:170px;height:auto;margin:0 auto 14px;display:block;padding:0;border-radius:8px}.splash-in p{font-size:13px;letter-spacing:.04em;color:#667085}:root[data-theme="dark"] .splash-in p{color:#A9BAD3}.bar{display:block;width:120px;height:2px;margin:22px auto 0;background:rgba(7,88,217,.18);position:relative;overflow:hidden;border-radius:2px}.bar::after{content:"";position:absolute;inset:0;width:40%;background:#0758D9;animation:sLoad .9s ease-in-out infinite}:root[data-theme="dark"] .bar::after{background:#3D8BFF}@keyframes sIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes sLoad{from{transform:translateX(-100%)}to{transform:translateX(250%)}}@media(prefers-reduced-motion:reduce){.splash-in,.bar::after{animation:none}}</style>
+    <link href="css/site.min.css" rel="stylesheet">
+    <script id="splash-js">window.CMI_SPLASH_BASE="";
+/* Splash screen untuk SEMUA halaman. Dimuat di <head> (sinkron) agar tampil sebelum halaman digambar.
+   Ubah durasi di MIN_MS (waktu tampil minimum) dan MAX_MS (batas maksimum).
+   Splash ditutup saat HTML selesai diproses (DOMContentLoaded), tidak menunggu semua gambar
+   selesai diunduh (event load), agar konten utama (LCP) cepat terlihat. */
+(function () {
+  var MIN_MS = 200, MAX_MS = 800;
+  var root = document.documentElement;
+  // Terapkan tema tersimpan lebih awal agar tidak ada kilatan warna
+  try { var t = localStorage.getItem("cm-theme"); if (t === "dark") root.dataset.theme = "dark"; } catch (e) {}
+  /* Saat ditanam langsung di <head> (tanpa file terpisah), lokasi aset diberikan lewat CMI_SPLASH_BASE */
+  var base = window.CMI_SPLASH_BASE != null ? window.CMI_SPLASH_BASE : document.currentScript.src.replace(/js\/splash\.js.*$/, "");
+  var el = document.createElement("div");
+  el.id = "splash"; el.setAttribute("aria-hidden", "true");
+  el.innerHTML = '<div class="splash-in"><img src="' + base + 'assets/logo/' + (root.dataset.theme === "dark" ? "logo-white" : "logo") + '.webp" alt="Cahaya Mustika Internesia"><p>Digital Signage &amp; Office Equipment</p><span class="bar"></span></div>';
+  root.appendChild(el);
+  var start = Date.now(), done = false;
+  function hide() {
+    if (done) return; done = true;
+    el.classList.add("out");
+    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 400);
+  }
+  function whenReady() { setTimeout(hide, Math.max(0, MIN_MS - (Date.now() - start))); }
+  if (document.readyState !== "loading") whenReady(); else document.addEventListener("DOMContentLoaded", whenReady);
+  setTimeout(hide, MAX_MS);
+  // Tombol Back/Forward (halaman dari cache): jangan tampilkan splash yang macet
+  window.addEventListener("pageshow", function (e) { if (e.persisted) hide(); });
+})();
+</script>
+    <link rel="canonical" href="https://jualdigitalsignagejakarta.my.id/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Cahaya Mustika Internesia">
-    <meta property="og:title" content="Jual Digital Signage Indonesia | Samsung, LG, Hikvision">
-    <meta property="og:description" content="Cari digital signage untuk kantor, sekolah, retail, dan fasilitas publik. Temukan professional display Samsung, LG, dan Hikvision bersama Cahaya Mustika.">
-    <meta property="og:url" content="https://evandwika.github.io/Digital-Signage/">
+    <meta property="og:title" content="Jual Digital Signage Jakarta | Samsung, LG, Hikvision Resmi">
+    <meta property="og:description" content="Jual digital signage Jakarta: Samsung, LG, dan Hikvision bergaransi resmi untuk kantor, retail, restoran, dan kampus. Kirim ke seluruh Indonesia. Minta harga.">
+    <meta property="og:url" content="https://jualdigitalsignagejakarta.my.id/">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jual Digital Signage Indonesia | Samsung, LG, Hikvision">
-    <meta name="twitter:description" content="Cari digital signage untuk kantor, sekolah, retail, dan fasilitas publik. Temukan professional display Samsung, LG, dan Hikvision bersama Cahaya Mustika.">
+    <meta name="twitter:title" content="Jual Digital Signage Jakarta | Samsung, LG, Hikvision Resmi">
+    <meta name="twitter:description" content="Jual digital signage Jakarta: Samsung, LG, dan Hikvision bergaransi resmi untuk kantor, retail, restoran, dan kampus. Kirim ke seluruh Indonesia. Minta harga.">
+    <meta property="og:image" content="https://jualdigitalsignagejakarta.my.id/assets/images/og-cover.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Digital signage kiosk di area mall - Cahaya Mustika Internesia">
+    <meta name="twitter:image" content="https://jualdigitalsignagejakarta.my.id/assets/images/og-cover.jpg">
     <script type="application/ld+json">
-    {"@context": "https://schema.org", "@type": "Organization", "name": "Cahaya Mustika Internesia", "url": "https://evandwika.github.io/Digital-Signage/", "logo": "https://evandwika.github.io/Digital-Signage/assets/logo/logo-navbar.webp", "email": "contact@cahayamustikainternesia.com", "telephone": "+62 811-330-1819", "address": {"@type": "PostalAddress", "streetAddress": "Jl. Penjernihan II No.7, RT.11/RW.6, Bend. Hilir, Kec. Tanah Abang", "addressLocality": "Jakarta Pusat", "addressRegion": "DKI Jakarta", "postalCode": "10210", "addressCountry": "ID"}, "description": "Cari digital signage untuk kantor, sekolah, retail, dan fasilitas publik. Temukan professional display Samsung, LG, dan Hikvision bersama Cahaya Mustika.", "sameAs": ["https://www.cahayamustikainternesia.com/"]}
+    {"@context": "https://schema.org", "@type": "Organization", "name": "Cahaya Mustika Internesia", "url": "https://jualdigitalsignagejakarta.my.id/", "logo": "https://jualdigitalsignagejakarta.my.id/assets/logo/logo-navbar.webp", "email": "contact@cahayamustikainternesia.com", "telephone": "+62 811-330-1819", "address": {"@type": "PostalAddress", "streetAddress": "Jl. Penjernihan II No.7, RT.11/RW.6, Bend. Hilir, Kec. Tanah Abang", "addressLocality": "Jakarta Pusat", "addressRegion": "DKI Jakarta", "postalCode": "10210", "addressCountry": "ID"}, "description": "Cari digital signage untuk kantor, sekolah, retail, dan fasilitas publik. Temukan professional display Samsung, LG, dan Hikvision bersama Cahaya Mustika Internesia.", "sameAs": ["https://www.cahayamustikainternesia.com/"]}
+    </script>
+    <script type="application/ld+json" id="faq-schema">
+    {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Apa itu digital signage?", "acceptedAnswer": {"@type": "Answer", "text": "Digital signage adalah layar digital untuk menampilkan promosi, menu, pengumuman, jadwal, dan informasi layanan yang kontennya bisa diganti kapan saja tanpa mencetak ulang banner atau poster."}}, {"@type": "Question", "name": "Apa perbedaan digital signage dan TV biasa?", "acceptedAnswer": {"@type": "Answer", "text": "Digital signage (professional display) dirancang untuk penggunaan komersial: sanggup menyala lebih lama setiap hari (misalnya 16/7 atau 24/7), umumnya lebih terang, dan mendukung penjadwalan konten. TV biasa dirancang untuk pemakaian rumah beberapa jam sehari, sehingga kurang cocok untuk layar promosi yang menyala seharian."}}, {"@type": "Question", "name": "Berapa harga digital signage?", "acceptedAnswer": {"@type": "Answer", "text": "Harga tergantung merek, ukuran (24 hingga 65 inci), dan tipe: wall-mounted, floor-standing/totem, kiosk, atau signage box. Klik Minta Harga via WhatsApp di halaman produk dan sebutkan model, jumlah unit, serta kota pemasangan agar kami kirimkan penawaran yang sesuai."}}, {"@type": "Question", "name": "Apakah produknya bergaransi resmi?", "acceptedAnswer": {"@type": "Answer", "text": "Ya. Semua produk Samsung, LG, dan Hikvision yang kami jual bergaransi resmi."}}, {"@type": "Question", "name": "Apakah bisa kirim ke luar Jakarta?", "acceptedAnswer": {"@type": "Answer", "text": "Bisa. Kantor kami di Tanah Abang, Jakarta Pusat, dan kami melayani pengiriman ke seluruh Indonesia."}}, {"@type": "Question", "name": "Apakah Cahaya Mustika Internesia menyediakan instalasi dan setting konten?", "acceptedAnswer": {"@type": "Answer", "text": "Ya. Tim teknisi kami dapat memasang bracket dinding atau floor stand, mengatur koneksi jaringan, dan menyiapkan pemutaran konten. Lingkup dan biayanya bisa dikonsultasikan sesuai lokasi dan jumlah unit."}}, {"@type": "Question", "name": "Ukuran digital signage berapa yang cocok?", "acceptedAnswer": {"@type": "Answer", "text": "Sebagai patokan: 24 inci untuk kiosk dan meja layanan, 43 inci untuk resepsionis atau ruang kecil, 49–55 inci untuk lobi dan ruang meeting, serta 65 inci untuk area luas dengan jarak pandang jauh. Kami bantu hitung sesuai jarak pandang di lokasi Anda."}}, {"@type": "Question", "name": "Brand digital signage apa saja yang tersedia?", "acceptedAnswer": {"@type": "Answer", "text": "Samsung (Smart Signage QE-T 4K dan kiosk KM24C), LG (UHD Signage UH5J, UH7J, dan UL3J), serta Hikvision (wall-mounted, floor-standing, dan Digital Signage Box)."}}]}
     </script>
   </head>
   <body data-base="">
     <header class="nav" id="nav">
       <div class="wrap nav-in">
-        <a aria-label="Cahaya Mustika" class="brand" href="index.html"><img alt="Cahaya Mustika" class="brand-logo brand-logo--light" src="assets/logo/logo-navbar.webp"> <img alt="Cahaya Mustika" class="brand-logo brand-logo--dark" src="assets/logo/logo-navbar-dark.webp"></a>
+        <a aria-label="Cahaya Mustika Internesia" class="brand" href="index.html"><img alt="Cahaya Mustika Internesia" class="brand-logo brand-logo--light" src="assets/logo/logo-navbar.webp"> <img alt="Cahaya Mustika Internesia" class="brand-logo brand-logo--dark" src="assets/logo/logo-navbar-dark.webp"></a>
         <nav aria-label="Menu utama" class="menu" id="menu">
           <a aria-current="page" href="index.html">Beranda</a>
           <div class="dd">
@@ -49,20 +87,20 @@
     <main>
       <section class="hero2" id="beranda">
         <div class="hero2-img" data-slides="">
-          <img alt="Video wall digital signage di lobi perusahaan" class="on" src="assets/images/hero/foto1.webp"> <img alt="Layar profesional di ruang meeting" class="" src="assets/images/hero/foto.webp"> <img alt="Digital signage promo di toko retail" class="" src="assets/images/hero/foto2.webp">
+          <img alt="Video wall digital signage di lobi perusahaan" class="on" src="assets/images/hero/foto1.webp" srcset="assets/images/hero/foto1-768.webp 768w, assets/images/hero/foto1-1280.webp 1280w, assets/images/hero/foto1.webp 1919w" sizes="100vw" fetchpriority="high" decoding="async"> <img alt="Layar profesional di ruang meeting" class="" src="assets/images/hero/foto.webp" srcset="assets/images/hero/foto-768.webp 768w, assets/images/hero/foto.webp 1024w" sizes="100vw" loading="lazy" decoding="async"> <img alt="Digital signage promo di toko retail" class="" src="assets/images/hero/foto2.webp" srcset="assets/images/hero/foto2-768.webp 768w, assets/images/hero/foto2.webp 1024w" sizes="100vw" loading="lazy" decoding="async">
         </div>
         <div class="hero2-ov"></div>
         <div class="wrap hero2-in">
           <div class="hero-t rv">
             <span class="eyebrow">Digital Signage &amp; Professional Display</span>
             <h1>
-              Jual Digital Signage untuk Kebutuhan Bisnis, Pendidikan, dan Perkantoran
+              Jual Digital Signage Jakarta untuk Bisnis, Pendidikan, dan Perkantoran
             </h1>
             <p>
-              Cahaya Mustika Internesia menyediakan solusi digital signage dan professional display dari Samsung, LG, dan Hikvision untuk kebutuhan perkantoran, pendidikan, retail, rumah sakit, dan fasilitas publik. Konsultasikan ukuran layar, fungsi, kondisi pemasangan, serta spesifikasi yang sesuai dengan kebutuhan Anda.
+              Display profesional Samsung, LG, dan Hikvision untuk promosi toko, menu digital, informasi lobi, hingga kiosk layanan. Kami bantu pilih ukuran yang tepat, kirim ke seluruh Indonesia, dan pasang di lokasi Anda.
             </p>
             <div class="btns">
-              <a class="btn btn-p" href="products.html">Lihat Produk</a> <a class="btn btn-o" data-wa="" href="#">Konsultasi Sekarang</a>
+              <a class="btn btn-p" href="products.html">Lihat Produk</a> <a class="btn btn-o" data-wa="" href="#">Minta Harga via WhatsApp</a>
             </div>
           </div>
         </div>
@@ -80,9 +118,6 @@
             Layar digital signage dan professional display untuk menu digital, promosi toko, informasi lobi, dan ruang meeting. Bandingkan spesifikasi tiap model, lalu konsultasikan kebutuhan Anda dengan tim kami.
           </p>
           <div class="pgrid" data-featured="samsung-qet-50,lg-uh5j-49,hikvision-ds-d6055un-b" id="grid"></div>
-          <p class="more">
-            <a class="btn btn-o" href="products.html">Lihat Semua Digital Signage</a>
-          </p>
         </div>
       </section>
       <section class="sec">
@@ -108,43 +143,116 @@
               Pilih solusi display berdasarkan lokasi dan informasi yang ingin Anda sampaikan.
             </p>
           </div>
-          <div class="sector-grid">
-            <article class="sector-card">
-              <span class="sector-number">01</span>
-              <h3>
-                Perkantoran
-              </h3>
-              <p>
-                Tampilkan pengumuman perusahaan, agenda rapat, informasi tamu, dan komunikasi internal di lobi maupun ruang kerja.
-              </p>
-            </article>
-            <article class="sector-card">
-              <span class="sector-number">02</span>
-              <h3>
-                Retail dan Pusat Perbelanjaan
-              </h3>
-              <p>
-                Sampaikan promosi, katalog produk, dan informasi penawaran melalui konten visual yang mudah diperbarui.
-              </p>
-            </article>
-            <article class="sector-card">
-              <span class="sector-number">03</span>
-              <h3>
-                Kafe dan Restoran
-              </h3>
-              <p>
-                Perlihatkan menu, paket promo, dan informasi produk agar pelanggan lebih mudah melihat pilihan yang tersedia.
-              </p>
-            </article>
-            <article class="sector-card">
-              <span class="sector-number">04</span>
-              <h3>
-                Sekolah dan Kampus
-              </h3>
-              <p>
-                Bagikan jadwal kegiatan, pengumuman akademik, informasi acara, dan petunjuk area kampus.
-              </p>
-            </article>
+          <div class="sector-tabs" data-sector-tabs="">
+            <div class="sector-tablist" role="tablist" aria-label="Pilih kebutuhan">
+              <button type="button" role="tab" id="st-kantor" aria-controls="sp-kantor" aria-selected="true">Perkantoran</button>
+              <button type="button" role="tab" id="st-retail" aria-controls="sp-retail" aria-selected="false" tabindex="-1">Retail &amp; Mall</button>
+              <button type="button" role="tab" id="st-kuliner" aria-controls="sp-kuliner" aria-selected="false" tabindex="-1">Kafe &amp; Restoran</button>
+              <button type="button" role="tab" id="st-kampus" aria-controls="sp-kampus" aria-selected="false" tabindex="-1">Sekolah &amp; Kampus</button>
+            </div>
+            <div class="sector-panel" role="tabpanel" id="sp-kantor" aria-labelledby="st-kantor">
+              <figure class="sector-media">
+                <img src="assets/images/portfolio/wall-display-ruang-vip.webp" srcset="assets/images/portfolio/wall-display-ruang-vip-640.webp 640w, assets/images/portfolio/wall-display-ruang-vip-800.webp 800w, assets/images/portfolio/wall-display-ruang-vip.webp 1000w" sizes="(max-width:860px) 92vw, 440px" alt="Display wall-mounted di ruang VIP" loading="lazy" decoding="async">
+                <figcaption>Proyek kami: display wall-mounted di ruang VIP</figcaption>
+              </figure>
+              <div class="sector-body">
+                <p class="sector-t">
+                  Kesan profesional sejak tamu masuk lobi.
+                </p>
+                <p>
+                  Satu layar untuk menyambut tamu, menampilkan profil perusahaan, dan menyampaikan informasi internal tanpa perlu mencetak ulang.
+                </p>
+                <ul class="sector-list">
+                  <li>Sambutan tamu dan profil perusahaan</li>
+                  <li>Agenda rapat dan pengumuman internal</li>
+                  <li>Informasi K3 dan jadwal ruang meeting</li>
+                </ul>
+                <div class="sector-rec">
+                  <small>Rekomendasi produk</small>
+                  <div class="sector-rec-btns">
+                    <a class="btn btn-p" href="products.html#lg/uh5j">Lihat LG UH5J <span aria-hidden="true">→</span></a>
+                    <a class="btn btn-o" href="products.html#lg/ul3j">Lihat LG UL3J <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sector-panel" role="tabpanel" id="sp-retail" aria-labelledby="st-retail" hidden>
+              <figure class="sector-media">
+                <img src="assets/images/hero/foto2.webp" srcset="assets/images/hero/foto2-768.webp 768w, assets/images/hero/foto2.webp 1024w" sizes="(max-width:860px) 92vw, 440px" alt="Digital signage promo di toko retail" loading="lazy" decoding="async">
+              </figure>
+              <div class="sector-body">
+                <p class="sector-t">
+                  Promosi yang menarik perhatian pengunjung.
+                </p>
+                <p>
+                  Ganti promo dan katalog dalam hitungan menit di seluruh toko, termasuk layar etalase berkecerahan tinggi di area yang terang.
+                </p>
+                <ul class="sector-list">
+                  <li>Promo dan diskon musiman</li>
+                  <li>Katalog dan video produk</li>
+                  <li>Display etalase menghadap pengunjung</li>
+                </ul>
+                <div class="sector-rec">
+                  <small>Rekomendasi produk</small>
+                  <div class="sector-rec-btns">
+                    <a class="btn btn-p" href="products.html#lg/uh7j">Lihat LG UH7J 700 nit <span aria-hidden="true">→</span></a>
+                    <a class="btn btn-o" href="products.html#samsung/qet">Lihat Samsung QE-T <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sector-panel" role="tabpanel" id="sp-kuliner" aria-labelledby="st-kuliner" hidden>
+              <figure class="sector-media">
+                <img src="assets/images/portfolio/ceiling-tv-foodcourt.webp" srcset="assets/images/portfolio/ceiling-tv-foodcourt-640.webp 640w, assets/images/portfolio/ceiling-tv-foodcourt-800.webp 800w, assets/images/portfolio/ceiling-tv-foodcourt.webp 1000w" sizes="(max-width:860px) 92vw, 440px" alt="Ceiling display di area foodcourt" loading="lazy" decoding="async">
+                <figcaption>Proyek kami: ceiling display di foodcourt</figcaption>
+              </figure>
+              <div class="sector-body">
+                <p class="sector-t">
+                  Menu jelas, pesanan lebih lancar.
+                </p>
+                <p>
+                  Menu board digital yang mudah diperbarui dan kiosk self-order membantu pelanggan memilih lebih cepat di jam sibuk.
+                </p>
+                <ul class="sector-list">
+                  <li>Menu dan harga yang mudah diganti</li>
+                  <li>Promo paket di jam tertentu</li>
+                  <li>Kiosk pemesanan mandiri</li>
+                </ul>
+                <div class="sector-rec">
+                  <small>Rekomendasi produk</small>
+                  <div class="sector-rec-btns">
+                    <a class="btn btn-p" href="products.html#samsung/qet">Lihat Samsung QE-T <span aria-hidden="true">→</span></a>
+                    <a class="btn btn-o" href="products.html#samsung/kmc">Lihat Kiosk Samsung KM24C <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sector-panel" role="tabpanel" id="sp-kampus" aria-labelledby="st-kampus" hidden>
+              <figure class="sector-media">
+                <img src="assets/images/portfolio/kiosk-filkom-multi-unit.webp" srcset="assets/images/portfolio/kiosk-filkom-multi-unit-640.webp 640w, assets/images/portfolio/kiosk-filkom-multi-unit-800.webp 800w, assets/images/portfolio/kiosk-filkom-multi-unit.webp 1000w" sizes="(max-width:860px) 92vw, 440px" alt="Lima unit kiosk digital signage di FILKOM Universitas Brawijaya" loading="lazy" decoding="async">
+                <figcaption>Proyek kami: 5 unit kiosk di FILKOM Universitas Brawijaya</figcaption>
+              </figure>
+              <div class="sector-body">
+                <p class="sector-t">
+                  Informasi kampus sampai ke semua orang.
+                </p>
+                <p>
+                  Kiosk dan layar dinding untuk jadwal, pengumuman, dan layanan akademik yang bisa diperbarui dari satu tempat.
+                </p>
+                <ul class="sector-list">
+                  <li>Jadwal dan pengumuman akademik</li>
+                  <li>Maklumat pelayanan dan zona integritas</li>
+                  <li>Petunjuk area dan informasi acara</li>
+                </ul>
+                <div class="sector-rec">
+                  <small>Rekomendasi produk</small>
+                  <div class="sector-rec-btns">
+                    <a class="btn btn-p" href="products.html#hikvision/wall-mounted">Lihat Hikvision Wall-mounted <span aria-hidden="true">→</span></a>
+                    <a class="btn btn-o" href="products.html#hikvision/floor-standing">Lihat Hikvision Floor Standing <span aria-hidden="true">→</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -156,51 +264,75 @@
               Bagaimana Memilih Digital Signage yang Tepat?
             </h2>
             <p class="sub">
-              Perangkat yang sesuai dimulai dari kebutuhan penggunaan. Pertimbangkan beberapa hal berikut sebelum menentukan produk.
-            </p><a class="btn btn-p" href="products.html">Jelajahi Produk</a>
+              Empat hal berikut menentukan model yang tepat, supaya layar terlihat jelas dan sesuai dengan cara pemakaiannya.
+            </p>
+            <div class="btns choosing-btns">
+              <a class="btn btn-p" href="products.html">Jelajahi Produk</a> <a class="btn btn-o" data-wa="" data-msg="Halo Cahaya Mustika Internesia, saya ingin dibantu memilih digital signage yang sesuai. Saya menemukan informasi ini melalui website jualdigitalsignagejakarta.my.id." href="#">Tanya via WhatsApp</a>
+            </div>
+            <div class="size-guide">
+              <p class="size-guide-t">Panduan Ukuran Cepat</p>
+              <dl>
+                <div>
+                  <dt>24″</dt>
+                  <dd>Kiosk dan meja layanan</dd>
+                </div>
+                <div>
+                  <dt>43″</dt>
+                  <dd>Resepsionis dan ruang kecil</dd>
+                </div>
+                <div>
+                  <dt>49–55″</dt>
+                  <dd>Lobi dan ruang meeting</dd>
+                </div>
+                <div>
+                  <dt>65″</dt>
+                  <dd>Area luas, jarak pandang jauh</dd>
+                </div>
+              </dl>
+            </div>
           </div>
           <div class="choosing-steps">
             <div class="choosing-step">
-              <span>1</span>
+              <span>01</span>
               <div>
-                <h3>
-                  Tentukan lokasi pemasangan
-                </h3>
+                <p class="step-t">
+                  Tentukan lokasi dan tingkat kecerahan
+                </p>
                 <p>
-                  Pastikan layar digunakan di dalam ruangan atau area luar ruangan dan perhatikan kondisi pencahayaan.
+                  Ruangan dalam dengan cahaya normal cukup 300–500 nit. Untuk etalase, dekat dinding kaca, atau area yang sangat terang, pilih 700 nit seperti LG UH7J.
                 </p>
               </div>
             </div>
             <div class="choosing-step">
-              <span>2</span>
+              <span>02</span>
               <div>
-                <h3>
-                  Sesuaikan ukuran dan jarak pandang
-                </h3>
+                <p class="step-t">
+                  Sesuaikan ukuran dengan jarak pandang
+                </p>
                 <p>
-                  Pertimbangkan luas area, posisi penonton, serta ukuran konten yang akan ditampilkan.
+                  Semakin jauh posisi penonton, semakin besar layar yang dibutuhkan. Gunakan panduan ukuran cepat sebagai patokan awal.
                 </p>
               </div>
             </div>
             <div class="choosing-step">
-              <span>3</span>
+              <span>03</span>
               <div>
-                <h3>
-                  Periksa spesifikasi produk
-                </h3>
+                <p class="step-t">
+                  Tentukan jam operasional
+                </p>
                 <p>
-                  Bandingkan resolusi, kecerahan, konektivitas, dan fitur berdasarkan spesifikasi resmi model.
+                  Layar yang menyala selama jam kerja cukup model 16/7 seperti LG UL3J. Untuk lobi, rumah sakit, atau area publik yang menyala sepanjang hari, pilih model 24/7 seperti LG UH5J dan UH7J.
                 </p>
               </div>
             </div>
             <div class="choosing-step">
-              <span>4</span>
+              <span>04</span>
               <div>
-                <h3>
-                  Konsultasikan kebutuhan Anda
-                </h3>
+                <p class="step-t">
+                  Konsultasikan dengan tim kami
+                </p>
                 <p>
-                  Diskusikan pilihan Samsung, LG, atau Hikvision dengan tim Cahaya Mustika sebelum meminta penawaran.
+                  Ceritakan lokasi, jumlah unit, dan konten yang ingin ditampilkan. Kami bantu rekomendasikan model Samsung, LG, atau Hikvision yang paling sesuai.
                 </p>
               </div>
             </div>
@@ -216,67 +348,89 @@
             </h2>
           </div>
           <div class="faq-i">
-            <button aria-expanded="false" class="faq-q">Apa itu digital signage? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
-            <path d="M1 1l4 4 4-4"></path></svg></button>
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Apa itu digital signage? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
             <div class="faq-a">
               <div>
                 <p>
-                  Digital signage adalah sistem penyampaian informasi menggunakan layar digital untuk menampilkan promosi, pengumuman, menu, jadwal, dan informasi layanan yang dapat diperbarui sesuai kebutuhan.
+                  Digital signage adalah layar digital untuk menampilkan promosi, menu, pengumuman, jadwal, dan informasi layanan yang kontennya bisa diganti kapan saja tanpa mencetak ulang banner atau poster.
                 </p>
               </div>
             </div>
           </div>
           <div class="faq-i">
-            <button aria-expanded="false" class="faq-q">Apa perbedaan digital signage dan TV biasa? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
-            <path d="M1 1l4 4 4-4"></path></svg></button>
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Apa perbedaan digital signage dan TV biasa? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
             <div class="faq-a">
               <div>
                 <p>
-                  Perbedaannya bergantung pada model. Professional display dapat menawarkan fitur untuk penggunaan komersial, seperti durasi operasi, tingkat kecerahan, konektivitas, atau pengelolaan konten. Periksa spesifikasi resmi sebelum memilih perangkat.
+                  Digital signage (professional display) dirancang untuk penggunaan komersial: sanggup menyala lebih lama setiap hari (misalnya 16/7 atau 24/7), umumnya lebih terang, dan mendukung penjadwalan konten. TV biasa dirancang untuk pemakaian rumah beberapa jam sehari, sehingga kurang cocok untuk layar promosi yang menyala seharian.
                 </p>
               </div>
             </div>
           </div>
           <div class="faq-i">
-            <button aria-expanded="false" class="faq-q">Apakah Cahaya Mustika menyediakan instalasi? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
-            <path d="M1 1l4 4 4-4"></path></svg></button>
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Berapa harga digital signage? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
             <div class="faq-a">
               <div>
                 <p>
-                  Kami dapat membantu kebutuhan instalasi. Hubungi kami untuk membahas lokasi dan kebutuhan Anda.
+                  Harga tergantung merek, ukuran (24 hingga 65 inci), dan tipe: wall-mounted, floor-standing/totem, kiosk, atau signage box. Klik Minta Harga via WhatsApp di halaman produk dan sebutkan model, jumlah unit, serta kota pemasangan agar kami kirimkan penawaran yang sesuai.
                 </p>
               </div>
             </div>
           </div>
           <div class="faq-i">
-            <button aria-expanded="false" class="faq-q">Brand digital signage apa saja yang tersedia? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
-            <path d="M1 1l4 4 4-4"></path></svg></button>
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Apakah produknya bergaransi resmi? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
             <div class="faq-a">
               <div>
                 <p>
-                  Saat ini tersedia produk dari Samsung, LG, dan Hikvision.
+                  Ya. Semua produk Samsung, LG, dan Hikvision yang kami jual bergaransi resmi.
                 </p>
               </div>
             </div>
           </div>
           <div class="faq-i">
-            <button aria-expanded="false" class="faq-q">Bagaimana cara mendapatkan penawaran harga? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
-            <path d="M1 1l4 4 4-4"></path></svg></button>
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Apakah bisa kirim ke luar Jakarta? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
             <div class="faq-a">
               <div>
                 <p>
-                  Pilih produk, buka halaman detail, lalu klik Ajukan Penawaran atau Konsultasi Sekarang untuk menghubungi kami lewat WhatsApp.
+                  Bisa. Kantor kami di Tanah Abang, Jakarta Pusat, dan kami melayani pengiriman ke seluruh Indonesia.
                 </p>
               </div>
             </div>
           </div>
           <div class="faq-i">
-            <button aria-expanded="false" class="faq-q">Apakah bisa melakukan konsultasi sebelum membeli? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
-            <path d="M1 1l4 4 4-4"></path></svg></button>
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Apakah Cahaya Mustika Internesia menyediakan instalasi dan setting konten? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
             <div class="faq-a">
               <div>
                 <p>
-                  Tentu. Kami menyarankan konsultasi terlebih dahulu agar ukuran dan tipe display sesuai kebutuhan Anda.
+                  Ya. Tim teknisi kami dapat memasang bracket dinding atau floor stand, mengatur koneksi jaringan, dan menyiapkan pemutaran konten. Lingkup dan biayanya bisa dikonsultasikan sesuai lokasi dan jumlah unit.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-i">
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Ukuran digital signage berapa yang cocok? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
+            <div class="faq-a">
+              <div>
+                <p>
+                  Sebagai patokan: 24 inci untuk kiosk dan meja layanan, 43 inci untuk resepsionis atau ruang kecil, 49–55 inci untuk lobi dan ruang meeting, serta 65 inci untuk area luas dengan jarak pandang jauh. Kami bantu hitung sesuai jarak pandang di lokasi Anda.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="faq-i">
+            <h3 class="faq-h"><button aria-expanded="false" class="faq-q">Brand digital signage apa saja yang tersedia? <svg fill="none" height="8" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 10 6" width="14">
+            <path d="M1 1l4 4 4-4"></path></svg></button></h3>
+            <div class="faq-a">
+              <div>
+                <p>
+                  Samsung (Smart Signage QE-T 4K dan kiosk KM24C), LG (UHD Signage UH5J, UH7J, dan UL3J), serta Hikvision (wall-mounted, floor-standing, dan Digital Signage Box).
                 </p>
               </div>
             </div>
@@ -290,7 +444,7 @@
               Temukan Display yang Tepat untuk Kebutuhan Anda
             </h2>
             <p>
-              Masih bingung menentukan ukuran, tipe display, atau solusi digital signage yang sesuai? Tim Cahaya Mustika siap membantu Anda.
+              Masih bingung menentukan ukuran, tipe display, atau solusi digital signage yang sesuai? Tim Cahaya Mustika Internesia siap membantu Anda.
             </p>
           </div><a class="btn btn-w" data-wa="" href="#">Konsultasi Sekarang</a>
         </div>
@@ -301,18 +455,18 @@
         <div>
           <img alt="Cahaya Mustika Internesia" class="flogo" loading="lazy" src="assets/logo/logo-footer.webp">
           <p>
-            Distributor digital signage dan professional display Samsung, LG, dan Hikvision untuk berbagai kebutuhan bisnis.
+            Jual digital signage dan professional display Samsung, LG, dan Hikvision untuk berbagai kebutuhan bisnis.
           </p>
         </div>
         <div>
-          <p class="ftitle">
+          <h2 class="ftitle">
             Informasi Perusahaan
-          </p><a href="index.html">Beranda</a> <a href="products.html">Produk</a> <a href="portfolio.html">Portofolio</a> <a href="articles.html">Artikel</a> <a href="contact.html">Kontak Kami</a>
+          </h2><a href="index.html">Beranda</a> <a href="products.html">Produk</a> <a href="portfolio.html">Portofolio</a> <a href="articles.html">Artikel</a> <a href="contact.html">Kontak Kami</a>
         </div>
         <div>
-          <p class="ftitle">
+          <h2 class="ftitle">
             Kontak
-          </p><span class="ci"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16">
+          </h2><span class="ci"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16">
           <path d="M12 21s7-6 7-11a7 7 0 00-14 0c0 5 7 11 7 11zM12 12a2 2 0 100-4 2 2 0 000 4z"></path></svg> <span>Jl. Penjernihan II No.7, RT.11/RW.6, Bend. Hilir, Kec. Tanah Abang, Kota Jakarta Pusat, DKI Jakarta 10210</span></span> <a class="ci" data-wa="0811-330-1819" href="#"><svg aria-hidden="true" fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="16">
           <path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"></path></svg> <span>Telepon / WhatsApp: +62 811-330-1819</span></a>
         </div>

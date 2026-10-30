@@ -1,0 +1,53 @@
+# Cache browser untuk hosting Apache / LiteSpeed (cPanel).
+# Gambar & font jarang berubah -> 1 tahun. CSS/JS -> 30 hari. HTML selalu dicek ulang.
+# Jika mengganti gambar dengan nama file yang sama, ganti juga nama filenya agar pengunjung tidak melihat versi lama.
+
+# Satu alamat resmi untuk SEO: paksa HTTPS dan alamat tanpa "www" (redirect permanen 301).
+# Aktifkan SSL di hosting (mis. Let's Encrypt di cPanel) sebelum mengunggah file ini.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# sitemap.xml & robots.txt jangan di-cache lama agar perubahan cepat terbaca Google
+<IfModule mod_headers.c>
+  <FilesMatch "^(sitemap\.xml|robots\.txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|png|jpe?g|svg|ico|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# Kompresi teks (HTML, CSS, JS) agar ukuran transfer lebih kecil
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript application/json image/svg+xml
+</IfModule>

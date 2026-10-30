@@ -5,12 +5,15 @@
    Edit daftar PORTFOLIO di bawah untuk mengganti/menambah proyek. Taruh foto asli di
    assets/images/portfolio/ lalu ubah nilai img. */
 const PORTFOLIO = [
-  { title: "Interactive Display untuk Ruang Kelas Kampus", desc: "Interactive display di ruang kelas kampus membantu dosen menyampaikan materi perkuliahan secara visual dan mudah diikuti mahasiswa.", img: "assets/images/portfolio/materi-kampus.webp" },
-  { title: "Smart Display untuk Ruang Kuliah", desc: "Smart display di ruang kuliah yang mendukung diskusi dan latihan bersama antara dosen dan mahasiswa secara lebih interaktif.", img: "assets/images/portfolio/diskusi-kampus.webp" },
-  { title: "Digital Signage untuk Area Kampus", desc: "Digital signage di lobby kampus untuk menyampaikan informasi akademik, pengumuman, dan jadwal kegiatan kepada mahasiswa serta pengunjung.", img: "assets/images/portfolio/campus-lobby.webp" },
-  { title: "Smart Display untuk Ruang Meeting", desc: "Smart display yang mendukung presentasi, rapat, dan kolaborasi tim secara lebih interaktif dan efektif.", img: "assets/images/portfolio/room-meeting.webp" },
-  { title: "Digital Signage untuk Lobby Kantor", desc: "Solusi digital signage untuk menyampaikan informasi, pengumuman, dan konten visual kepada karyawan maupun pengunjung di area lobby perkantoran.", img: "assets/images/portfolio/lobby.webp" },
-  { title: "Display Informasi untuk Area Resepsionis", desc: "Display digital di area resepsionis yang membantu menyampaikan informasi dan identitas perusahaan kepada tamu yang datang.", img: "assets/images/portfolio/reception.webp" },
+  { title: "Instalasi Wall-Mounted Display untuk Ruang VIP", desc: "Pemasangan digital signage wall-mounted pada panel kayu ukir di ruang VIP, lengkap dengan sistem content management untuk mengatur pemutaran konten.", img: "assets/images/portfolio/wall-display-ruang-vip.webp" },
+  { title: "Kiosk Digital Signage untuk Pengumuman Layanan Kampus", desc: "Floor-standing kiosk digital signage di lobi FILKOM UB menampilkan maklumat pelayanan fakultas kepada mahasiswa dan pengunjung secara real-time.", img: "assets/images/portfolio/kiosk-filkom-maklumat-pelayanan.webp" },
+  { title: "Ceiling Mount Display untuk Foodcourt", desc: "Digital signage yang dipasang menggantung di langit-langit area foodcourt untuk menampilkan promosi dan informasi menu kepada pengunjung.", img: "assets/images/portfolio/ceiling-tv-foodcourt.webp" },
+  { title: "Proses Instalasi Wall-Mounted Digital Signage", desc: "Tim teknisi kami melakukan pemasangan dan konfigurasi digital signage wall-mounted secara langsung di lokasi pelanggan.", img: "assets/images/portfolio/instalasi-wall-display.webp" },
+  { title: "Multi-Unit Kiosk Digital Signage untuk Kampus", desc: "Lima unit floor-standing kiosk digital signage FILKOM UB terpasang berjajar, masing-masing dapat dikonfigurasi dan dipantau melalui dashboard content management.", img: "assets/images/portfolio/kiosk-filkom-multi-unit.webp" },
+  { title: "Kiosk Digital Signage untuk Konten Komunitas Kampus", desc: "Floor-standing kiosk digital signage FILKOM UB menampilkan konten komunitas dan informasi media sosial kampus kepada mahasiswa dan tamu.", img: "assets/images/portfolio/kiosk-filkom-konten-komunitas.webp" },
+  { title: "Kiosk Digital Signage untuk Kampanye Zona Integritas", desc: "Floor-standing kiosk digital signage FILKOM UB menampilkan kampanye anti-korupsi dan pelayanan prima sebagai bagian dari program Zona Integritas kampus.", img: "assets/images/portfolio/kiosk-filkom-zona-integritas.webp" },
+  { title: "Proses Pemasangan Bracket Wall Mount", desc: "Tim teknisi kami mengukur dan memasang bracket wall mount menggunakan waterpass agar posisi digital signage presisi dan sejajar sebelum unit terpasang.", img: "assets/images/portfolio/instalasi-bracket-wall-mount.webp" },
+  { title: "Konfigurasi Jaringan Wall-Mounted Display", desc: "Tahap konfigurasi koneksi jaringan WiFi pada digital signage wall-mounted di ruang VIP agar perangkat siap menerima dan memutar konten.", img: "assets/images/portfolio/konfigurasi-jaringan-wall-display.webp" },
 ];
 
 (function () {
@@ -20,7 +23,7 @@ const PORTFOLIO = [
   const render = () => {
     pf.innerHTML = PORTFOLIO.length
       ? PORTFOLIO.map((x) => `<article class="pfc" role="button" tabindex="0" data-img="${x.img}" data-t="${esc(x.title)}" aria-label="Lihat foto ${esc(x.title)}">
-      <div class="pfc-img"><img src="${x.img}" alt="${esc(x.title)}" loading="lazy"></div>
+      <div class="pfc-img"><img src="${x.img}" srcset="${x.img.replace(/(\.\w+)$/, "-640$1")} 640w, ${x.img.replace(/(\.\w+)$/, "-800$1")} 800w, ${x.img} 1000w" sizes="(max-width:640px) 92vw, 400px" alt="${esc(x.title)}" loading="lazy"></div>
       <div class="pfc-b"><h2>${esc(x.title)}</h2><p>${esc(x.desc)}</p></div></article>`).join("")
       : `<p class="empty">Belum ada contoh portofolio. Hubungi kami untuk melihat studi kasus lainnya.</p>`;
   };

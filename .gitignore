@@ -1,0 +1,5 @@
+# Folder berisi ZIP siap upload & laporan; bukan bagian dari website
+wordpress theme/
+
+# Pengaturan pratinjau lokal Claude Code
+.claude/

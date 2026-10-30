@@ -1,0 +1,10 @@
+# robots.txt — jualdigitalsignagejakarta.my.id
+# Semua halaman boleh dirayapi mesin pencari.
+User-agent: *
+Allow: /
+
+# Peta situs (halaman utama + detail produk)
+Sitemap: https://jualdigitalsignagejakarta.my.id/sitemap.xml
+
+# Jika blog WordPress (Yoast SEO) berada di domain yang sama, tambahkan juga, contoh:
+# Sitemap: https://jualdigitalsignagejakarta.my.id/blog/sitemap_index.xml

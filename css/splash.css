@@ -1,5 +1,5 @@
 /* Splash screen bersama untuk semua halaman (dibuat oleh js/splash.js) */
-#splash{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:linear-gradient(180deg,#EAF2FF,#fff);opacity:1;visibility:visible;transition:opacity .45s ease,visibility .45s}
+#splash{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;background:linear-gradient(180deg,#EAF2FF,#fff);opacity:1;visibility:visible;transition:opacity .3s ease,visibility .3s}
 :root[data-theme="dark"] #splash{background:linear-gradient(180deg,#0b2540,#071426)}
 #splash.out{opacity:0;visibility:hidden;pointer-events:none}
 .splash-in{text-align:center;padding:20px;animation:sIn .5s ease both}

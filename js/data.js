@@ -126,7 +126,7 @@ window.PRODUCTS=[
   "brand": "Samsung",
   "series": "accessories",
   "type": "accessory",
-  "img": "assets/products/samsung/Samsung CY-KM24AP.webp",
+  "img": "assets/products/samsung/samsung-cy-km24ap.webp",
   "name": "Samsung CY-KM24AP",
   "model": "CY-KM24AP",
   "cat": "Aksesori",
@@ -142,7 +142,7 @@ window.PRODUCTS=[
   "brand": "Samsung",
   "series": "accessories",
   "type": "accessory",
-  "img": "assets/products/samsung/Samsung STN-KM24A.webp",
+  "img": "assets/products/samsung/samsung-stn-km24a.webp",
   "name": "Samsung STN-KM24A",
   "model": "STN-KM24A",
   "cat": "Aksesori",
@@ -158,7 +158,7 @@ window.PRODUCTS=[
   "brand": "LG",
   "series": "uh7j",
   "type": "display",
-  "img": "assets/products/lg/LG UHD Standard Signage .webp",
+  "img": "assets/products/lg/lg-uh7j.webp",
   "name": "LG UHD Standard Signage 43UH7J-H",
   "model": "43UH7J-H",
   "size": 43,
@@ -177,7 +177,7 @@ window.PRODUCTS=[
   "brand": "LG",
   "series": "uh7j",
   "type": "display",
-  "img": "assets/products/lg/LG UHD Standard Signage .webp",
+  "img": "assets/products/lg/lg-uh7j.webp",
   "name": "LG UHD Standard Signage 49UH7J-H",
   "model": "49UH7J-H",
   "size": 49,
@@ -196,7 +196,7 @@ window.PRODUCTS=[
   "brand": "LG",
   "series": "uh7j",
   "type": "display",
-  "img": "assets/products/lg/LG UHD Standard Signage .webp",
+  "img": "assets/products/lg/lg-uh7j.webp",
   "name": "LG UHD Standard Signage 55UH7J-H",
   "model": "55UH7J-H",
   "size": 55,
@@ -383,7 +383,7 @@ window.PRODUCTS=[
   "brand": "Hikvision",
   "series": "floor-standing",
   "type": "display",
-  "img": "assets/products/hikvision/Hikvision Digital Signage.webp",
+  "img": "assets/products/hikvision/hikvision-digital-signage.webp",
   "name": "Hikvision Digital Signage DS-D6043UL-B/S",
   "model": "DS-D6043UL-B/S",
   "size": 43,
@@ -401,7 +401,7 @@ window.PRODUCTS=[
   "brand": "Hikvision",
   "series": "floor-standing",
   "type": "display",
-  "img": "assets/products/hikvision/Hikvision Digital Signage.webp",
+  "img": "assets/products/hikvision/hikvision-digital-signage.webp",
   "name": "Hikvision Digital Signage DS-D6055UL-B/S",
   "model": "DS-D6055UL-B/S",
   "size": 55,
@@ -419,7 +419,7 @@ window.PRODUCTS=[
   "brand": "Hikvision",
   "series": "floor-standing",
   "type": "display",
-  "img": "assets/products/hikvision/Hikvision Digital Signage.webp",
+  "img": "assets/products/hikvision/hikvision-digital-signage.webp",
   "name": "Hikvision Digital Signage DS-D6043FL-B/S",
   "model": "DS-D6043FL-B/S",
   "size": 42.5,
@@ -470,38 +470,50 @@ window.SOLUTIONS=[
  {
   "id": "indoor",
   "title": "Digital Signage Indoor",
-  "desc": "Display digital untuk kebutuhan informasi dan promosi di dalam ruangan.",
-  "img": "assets/images/solutions/retail.webp"
+  "desc": "Layar promosi 4K untuk toko, showroom, dan lobi yang kontennya bisa diganti kapan saja.",
+  "img": "assets/images/solutions/retail.webp",
+  "href": "products.html#samsung/qet",
+  "cta": "Lihat produk"
  },
  {
   "id": "outdoor",
   "title": "Digital Signage Outdoor",
-  "desc": "Display digital untuk menyampaikan informasi di area luar ruangan.",
-  "img": "assets/images/solutions/outdoor.webp"
+  "desc": "Layar berkecerahan tinggi untuk area luar ruangan. Konsultasikan kondisi lokasi Anda.",
+  "img": "assets/images/solutions/outdoor.webp",
+  "href": "contact.html",
+  "cta": "Konsultasikan"
  },
  {
   "id": "corporate",
-  "title": "Corporate Display",
-  "desc": "Komunikasi internal, lobi, dan ruang meeting perusahaan yang lebih profesional.",
-  "img": "assets/images/solutions/corporate.webp"
+  "title": "Digital Signage Kantor & Lobi",
+  "desc": "Sambutan tamu, info perusahaan, dan jadwal rapat tampil rapi sepanjang hari.",
+  "img": "assets/images/solutions/corporate.webp",
+  "href": "products.html#lg/uh5j",
+  "cta": "Lihat produk"
  },
  {
   "id": "menu",
-  "title": "Digital Menu Board",
-  "desc": "Menu digital yang mudah diperbarui untuk restoran dan kafe.",
-  "img": "assets/images/solutions/digitalmenu.webp"
+  "title": "Menu Board Digital",
+  "desc": "Ganti harga dan promo menu dalam hitungan menit, tanpa cetak ulang.",
+  "img": "assets/images/solutions/digitalmenu.webp",
+  "href": "products.html#samsung/qet",
+  "cta": "Lihat produk"
  },
  {
   "id": "transportation",
-  "title": "Transportation Digital Signage",
-  "desc": "Informasi jadwal dan petunjuk perjalanan di area transportasi.",
-  "img": "assets/images/solutions/public.webp"
+  "title": "Digital Signage Transportasi",
+  "desc": "Jadwal, pengumuman, dan petunjuk arah di stasiun, bandara, dan terminal.",
+  "img": "assets/images/solutions/public.webp",
+  "href": "products.html#hikvision/floor-standing",
+  "cta": "Lihat produk"
  },
  {
   "id": "interactive",
   "title": "Digital Signage Interaktif",
-  "desc": "Display interaktif yang memungkinkan pengguna berinteraksi dengan konten.",
-  "img": "assets/images/solutions/interactive.webp"
+  "desc": "Kiosk layar sentuh untuk self-order, check-in, dan pencarian informasi mandiri.",
+  "img": "assets/images/solutions/interactive.webp",
+  "href": "products.html#samsung/kmc",
+  "cta": "Lihat produk"
  }
 ];
 window.ARTICLES=[

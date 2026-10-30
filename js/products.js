@@ -5,21 +5,23 @@
   const bucket = (s) => String(s);
   /* Gambar produk: pakai path persis dari js/data.js (p.img). Ekstensi tidak diubah. */
   const imgSrc = (p) => BASE + p.img;
+  /* Gambar versi kecil (-640) untuk layar HP; browser memilih sendiri lewat srcset */
+  const small = (u) => u.replace(/(\.\w+)$/, "-640$1");
+  const srcset = (u, w) => `${small(u)} 640w, ${u.replace(/(\.\w+)$/, "-800$1")} 800w, ${u} ${w}w`;
   /* Produk tanpa foto (series baru & accessories): placeholder konsisten dengan fallback gambar existing */
-  const media = (p) => p.img ? `<img src="${imgSrc(p)}" alt="${esc(p.name)}" loading="lazy" decoding="async">` : `<span class="imgfb" role="img" aria-label="${esc(p.name)}">${esc(p.name)}</span>`;
-  /* Logo brand (gambar PNG), menggantikan badge teks berwarna di atas nama produk */
-  const BRAND_LOGO_IMG = {
-    Samsung: "assets/logo/brands/samsung.webp",
-    LG: "assets/logo/brands/lg.webp",
-    Hikvision: "assets/logo/brands/hikvision.webp"
+  const media = (p) => p.img ? `<img src="${imgSrc(p)}" srcset="${srcset(imgSrc(p), 1000)}" sizes="(max-width:640px) 92vw, 380px" alt="${esc(p.name)}" loading="lazy" decoding="async">` : `<span class="imgfb" role="img" aria-label="${esc(p.name)}">${esc(p.name)}</span>`;
+  /* Badge teks nama brand di atas nama produk (logo gambar brand sudah tidak dipakai lagi) */
+  const brandLogo = (b) => `<span class="pbrand">${esc(b)}</span>`;
+  /* p.href / p.cta opsional: menimpa tujuan link & teks tombol (dipakai kartu beranda yang menuju halaman merek).
+     p.metaHtml / p.extraHtml opsional: HTML siap pakai (sudah di-escape) di atas judul & di bawah deskripsi. */
+  /* Judul kartu produk (nama tipe/model) memakai H2 */
+  const card = (p, hTag = p.hTag || "h2") => {
+    const href = p.href || `${BASE}product-detail/${p.id}.html`;
+    return `<article class="pcard">
+    <a class="pimg" href="${href}" data-name="${esc(p.name)}">${media(p)}</a>
+    <div class="pb">${brandLogo(p.brand)}${p.type === "accessory" && p.acat ? `<span class="pacat">${esc(p.acat)}</span>` : ""}${p.metaHtml || ""}<${hTag}>${esc(p.name)}</${hTag}>${p.desc ? `<p class="pdesc">${esc(p.desc)}</p>` : ""}${p.extraHtml || ""}
+    <a class="btn btn-o" href="${href}">${esc(p.cta || "Lihat Detail")}</a></div></article>`;
   };
-  const brandLogo = (b) => BRAND_LOGO_IMG[b]
-    ? `<span class="pbrand-logo"><img src="${BASE + BRAND_LOGO_IMG[b]}" alt="${esc(b)}" class="blogo blogo-${b.toLowerCase()}" loading="lazy" decoding="async"></span>`
-    : `<span class="pbrand">${esc(b)}</span>`;
-  const card = (p, hTag = p.hTag || "h2") => `<article class="pcard">
-    <a class="pimg" href="${BASE}product-detail/${p.id}.html" data-name="${esc(p.name)}">${media(p)}</a>
-    <div class="pb">${brandLogo(p.brand)}${p.type === "accessory" && p.acat ? `<span class="pacat">${esc(p.acat)}</span>` : ""}<${hTag}>${esc(p.name)}</${hTag}>${p.desc ? `<p class="pdesc">${esc(p.desc)}</p>` : ""}
-    <a class="btn btn-o" href="${BASE}product-detail/${p.id}.html">Lihat Detail</a></div></article>`;
   const ARROW = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   const BRANDS = ["Samsung", "LG", "Hikvision"];
   const group = (list) => BRANDS.map((b) => {
@@ -57,7 +59,7 @@
   const pdImg = document.querySelector(".pdimg img");
   if (pdImg) {
     const pid = location.pathname.split("/").pop().replace(/\.html?$/, ""), p = (window.PRODUCTS || []).find((x) => x.id === pid);
-    if (p && p.img) { pdImg.parentNode.dataset.name = p.name; pdImg.src = imgSrc(p); }
+    if (p && p.img) { pdImg.parentNode.dataset.name = p.name; pdImg.srcset = srcset(imgSrc(p), 1000); pdImg.sizes = "(max-width:900px) 92vw, 560px"; pdImg.src = imgSrc(p); }
     if (pdImg.complete && pdImg.naturalWidth === 0 && pdImg.getAttribute("src")) fallback(pdImg);
   }
 
@@ -69,7 +71,28 @@
       grid.innerHTML = list.length ? list.map((p) => card(p)).join("") : `<p class="empty">Produk tidak ditemukan. Ubah filter atau hubungi kami untuk rekomendasi.</p>`;
       bindWA();
     };
-    if (d.featured) show(d.featured.split(",").map((id) => all.find((p) => p.id === id)).filter(Boolean).map((p) => ({ ...p, hTag: "h3", desc: p.desc ? p.desc.split(", dirancang")[0].replace(/\.$/, "") + "." : p.desc })));
+    if (d.featured) {
+      /* Kartu beranda mewakili merek (bukan satu model): judul & deskripsi per merek, ditulis memuat
+         kata kunci "digital signage + merek" dan seri yang benar-benar ada di js/data.js */
+      const BRAND_CARD = {
+        Samsung: { name: "Digital Signage Samsung", desc: "Smart Signage 4K UHD 43–55 inci dan kiosk 24 inci untuk retail, restoran, dan lobi kantor." },
+        LG: { name: "Digital Signage LG", desc: "UHD Signage panel IPS 43–55 inci untuk lobi perusahaan, ruang meeting, dan area publik." },
+        Hikvision: { name: "Digital Signage Hikvision", desc: "Display 43–65 inci dan Signage Box untuk kampus, perkantoran, dan fasilitas publik." }
+      };
+      /* Nama pendek chip seri (aksesori tidak ditampilkan sebagai chip) */
+      const SHORT = { qet: "QE-T 4K", kmc: "Kiosk KM24C", uh7j: "UH7J", uh5j: "UH5J", ul3j: "UL3J", "wall-mounted": "Wall-mounted", "floor-standing": "Floor Standing", "servers-boxes": "Signage Box" };
+      const list = d.featured.split(",").map((id) => all.find((p) => p.id === id)).filter(Boolean).map((p) => {
+        const k = p.brand.toLowerCase(), n = all.filter((x) => x.brand === p.brand).length;
+        const chips = (window.SERIES[p.brand] || []).filter((s) => SHORT[s.id]).map((s) => `<a href="${BASE}products.html#${k}/${s.id}">${esc(SHORT[s.id])}</a>`).join("");
+        return { ...p, hTag: "h2", ...(BRAND_CARD[p.brand] || {}),
+          metaHtml: `<span class="fmeta">${n} produk · Garansi resmi</span>`,
+          extraHtml: chips ? `<div class="fchips">${chips}</div>` : "",
+          /* Arahkan ke halaman produk merek tersebut, bukan detail model */
+          href: `${BASE}products.html#${k}`, cta: `Lihat Produk ${p.brand}` };
+      });
+      grid.innerHTML = list.length ? list.map((p) => card(p)).join("") : `<p class="empty">Produk tidak ditemukan. Ubah filter atau hubungi kami untuk rekomendasi.</p>`;
+      bindWA();
+    }
     else if (d.related) {
       /* Terkait: series yang sama dulu, lalu produk sejenis (display/aksesori) dari brand yang sama */
       const c = all.find((p) => p.id === d.related), same = all.filter((p) => p.brand === c.brand && p.id !== c.id);
@@ -106,11 +129,17 @@
          requestAnimationFrame (x2) memastikan DOM dari run() sudah selesai di-paint sebelum scroll dihitung,
          supaya saat datang dari halaman lain (mis. klik navbar di index.html) scroll langsung tepat & produk langsung terlihat. */
       const toSeries = () => {
-        if (!want) return;
+        if (!want) return toTop();
         requestAnimationFrame(() => requestAnimationFrame(() => {
           const el = document.getElementById("series-" + want);
           if (el) el.scrollIntoView({ block: "start" });
         }));
+      };
+      /* Bug fix: setelah ganti merek, layar tetap di posisi scroll lama (mis. bawah daftar Samsung) sehingga
+         daftar merek baru tampak "macet". Gulir kembali ke kotak filter bila pengguna sudah melewatinya. */
+      const toTop = () => {
+        const f = document.getElementById("filters");
+        if (f && f.getBoundingClientRect().top < 0) f.scrollIntoView({ behavior: "smooth", block: "start" });
       };
       let skip = false;
       const setHash = (h) => { if (location.hash === "#" + h) return; skip = true; location.hash = h; };
@@ -161,7 +190,7 @@
         block.hidden = !present.length;
       };
       const reset = () => { q.value = fs.value = fc.value = ""; run(); };
-      const go = (b, s) => { q.value = ""; brand = b; const l = seriesFor(b); series = (l.find((x) => x.id === s) || l[0] || { id: "" }).id; setHash(s ? b.toLowerCase() + "/" + series : b.toLowerCase()); run(); };
+      const go = (b, s) => { q.value = ""; brand = b; const l = seriesFor(b); series = (l.find((x) => x.id === s) || l[0] || { id: "" }).id; setHash(s ? b.toLowerCase() + "/" + series : b.toLowerCase()); run(); toTop(); };
       chips.forEach((c) => c.addEventListener("click", () => go(c.dataset.v)));
       [q, fs, fcEl].filter(Boolean).forEach((el) => el.addEventListener("input", run));
       rst.addEventListener("click", reset);
@@ -189,7 +218,8 @@
 
   /* ---- Solusi (beranda) ---- */
   const sol = document.getElementById("solutions");
-  if (sol) sol.innerHTML = window.SOLUTIONS.map((x) => `<article class="solc"><img src="${BASE}${x.img}" alt="${esc(x.title)}" loading="lazy"><div class="sol-t"><h3>${x.title}</h3><p>${x.desc}</p></div></article>`).join("");
+  /* Kartu solusi: tiap kartu menuju produk yang relevan (x.href), teks petunjuk (x.cta) muncul saat hover */
+  if (sol) sol.innerHTML = window.SOLUTIONS.map((x) => `<a class="solc" href="${BASE}${x.href || "products.html"}" aria-label="${esc(x.cta || "Lihat produk")}: ${esc(x.title)}"><img src="${BASE}${x.img}" srcset="${srcset(BASE + x.img, 1200)}" sizes="(max-width:640px) 92vw, (max-width:1100px) 50vw, 600px" alt="${esc(x.title)}" loading="lazy"><div class="sol-t"><h3>${esc(x.title)}</h3><p>${esc(x.desc)}</p><span class="sol-more">${esc(x.cta || "Lihat produk")} <span aria-hidden="true">→</span></span></div></a>`).join("");
 
   /* ---- Artikel: data dari window.ARTICLES (js/data.js) ---- */
   const ART_ARROW = " →";
@@ -239,7 +269,7 @@
   const art = document.getElementById("art");
   if (art) {
     const a = window.ARTICLES.find((x) => x.id === new URLSearchParams(location.search).get("a")) || window.ARTICLES[0];
-    document.title = a.title + " | Cahaya Mustika Indonesia";
+    document.title = a.title + " | Cahaya Mustika Internesia";
     const bc = document.getElementById("artCrumb"); if (bc) bc.textContent = a.title;
     art.innerHTML = `<header class="ahd"><div class="ameta"><time>${a.date}</time></div><h1>${a.title}</h1><p class="aintro">${a.intro}</p></header>
       <figure class="ahero"><img src="${BASE}${a.img}" alt="${esc(a.title)}"></figure>
