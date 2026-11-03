@@ -428,7 +428,7 @@ window.PRODUCTS=[
   "cat": "Digital Signage",
   "nit": 500,
   "desc": "Hikvision Digital Signage DS-D6043FL-B/S adalah digital signage Floor Standing Series berukuran 42.5 inci dengan backlight LED, bezel tipis, dan brightness 500 nits.",
-  "specs": "Screen Size: 42.5\"; Active Zone (H x V): 529.25 x 940.90 mm; Backlight: LED backlight; Pixel Pitch: 0.163 x 0.490 mm; Resolution: 1.920x1.080 @60Hz; Brightness: 500 nits; Visual Angle: Horizontal 178°, vertical 178°; Color Depth: 8 bit; Contrast: 1.200:1; Response Time: 8 ms; Refresh Rate: 60Hz; Color Gamut: 72% NTSC; CPU: Cortex-A17, 4-core, 1.8 GHz; Memory: 2 GB; Operation System: Android 6.0.1; SD Card: 8 GB EMMC, TF 32 GB, Max. 128 GB; Video dan Audio Outputs: AUDIO x 1, Built-in loudspeakers x 2; Network Interface: LAN x 1, Wi-Fi; Data Transmission Interface: USB x 2, TF Card x 1; Power: 100 to 240 VAC, 50 or 60 Hz.",
+  "specs": "Screen Size: 42.5\"; Active Zone (H x V): 529.25 x 940.90 mm; Backlight: LED backlight; Pixel Pitch: 0.163 x 0.490 mm; Resolution: 1.920x1.080 @60Hz; Brightness: 500 nits; Visual Angle: Horizontal 178°, vertical 178°; Color Depth: 8 bit; Contrast: 1.200:1; Response Time: 8 ms; Refresh Rate: 60Hz; Color Gamut: 72% NTSC; CPU: Cortex-A17, 4-core, 1.8 GHz; Memory: 2 GB; Operation System: Android 6.0.1; SD Card: 8 GB EMMC, TF 32 GB, Max. 128 GB; Output Video dan Audio: AUDIO x 1, Built-in loudspeakers x 2; Network Interface: LAN x 1, Wi-Fi; Data Transmission Interface: USB x 2, TF Card x 1; Power: 100 to 240 VAC, 50 or 60 Hz.",
   "sourceUrl": "https://www.cahayamustikainternesia.com/product/hikvision-digital-signage-ds-d6043fl-b-s",
   "verified": true
  },
@@ -465,7 +465,7 @@ window.PRODUCTS=[
   "verified": true
  }
 ];
-window.SERIES={"Samsung": [{"id": "qet", "name": "QE-T Series"}, {"id": "kmc", "name": "KMC Series"}, {"id": "accessories", "name": "Accessories"}], "LG": [{"id": "uh7j", "name": "UH7J Series"}, {"id": "uh5j", "name": "UH5J Series"}, {"id": "ul3j", "name": "UL3J Series"}], "Hikvision": [{"id": "wall-mounted", "name": "Wall-mounted Series"}, {"id": "floor-standing", "name": "Floor Standing Series"}, {"id": "servers-boxes", "name": "Digital Signage Servers dan Boxes"}]};
+window.SERIES={"Samsung": [{"id": "qet", "name": "QE-T Series"}, {"id": "kmc", "name": "KMC Series"}, {"id": "accessories", "name": "Accessories"}], "LG": [{"id": "uh7j", "name": "UH7J Series"}, {"id": "uh5j", "name": "UH5J Series"}, {"id": "ul3j", "name": "UL3J Series"}], "Hikvision": [{"id": "wall-mounted", "name": "Wall-mounted Series"}, {"id": "floor-standing", "name": "Floor Standing Series"}, {"id": "servers-boxes", "name": "Server dan Box Digital Signage"}]};
 window.SOLUTIONS=[
  {
   "id": "indoor",
