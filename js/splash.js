@@ -11,7 +11,7 @@
   var base = window.CMI_SPLASH_BASE != null ? window.CMI_SPLASH_BASE : document.currentScript.src.replace(/js\/splash\.js.*$/, "");
   var el = document.createElement("div");
   el.id = "splash"; el.setAttribute("aria-hidden", "true");
-  el.innerHTML = '<div class="splash-in"><img src="' + base + 'assets/logo/' + (root.dataset.theme === "dark" ? "logo-white" : "logo") + '.webp" alt="Cahaya Mustika Internesia"><p>Digital Signage &amp; Office Equipment</p><span class="bar"></span></div>';
+  el.innerHTML = '<div class="splash-in"><img src="' + base + 'assets/logo/' + (root.dataset.theme === "dark" ? "logo-white" : "logo") + '.webp" alt="Cahaya Mustika Internesia"><p>Digital Signage dan Office Equipment</p><span class="bar"></span></div>';
   root.appendChild(el);
   var start = Date.now(), done = false;
   function hide() {
