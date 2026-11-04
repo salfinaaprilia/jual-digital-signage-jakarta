@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
   $$(".sec .ctr > .eyebrow, .sec .ctr > h2, .sec .ctr > .sub, .sec .head, .pf-all-label, .cta-in").forEach((el) => tag(el));
   /* Kelompok kartu: muncul berurutan */
   [[".feat #grid", ".pcard"], ["#solutions", ".solc"], [".choosing-copy", ":scope > *"], [".choosing-steps", ".choosing-step"],
-   [".faq", ".faq-i"], ["#pf", ".pfc"], [".pf-trust-in", ":scope > div"], ["#artgrid", ".acard"],
+   [".faq", ".faq-i"], ["#pf", ".pfc"], [".pf-trust-in", ":scope > div"], ["#artgrid", ".acard"], ["#homeart", ".acard"],
    /* Halaman produk (tiap seri), detail produk, kontak, dan detail artikel */
    [".pgrid", ".pcard"], [".pd", ":scope > *"], [".kt-list", "li"], [".adetail", ".ahd, .ahero, .abody"]]
     .forEach(([box, item]) => $$(box).forEach((b) => $$(item, b).forEach((el, i) => tag(el, i))));

@@ -878,3 +878,22 @@ button{transition:background .2s,color .2s,border-color .2s}
 .pdet .rel{margin:88px auto 32px;padding-top:56px;border-top:1px solid var(--line)}
 .pdet .pd{padding-bottom:8px}
 @media(max-width:960px){.pd .pdimg{position:static}.pdet .rel{margin-top:64px;padding-top:44px}}
+
+/* Beranda: Artikel Terbaru. Kartu yang sama dengan halaman Artikel, disusun tegak 3 kolom */
+.hagrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:36px}
+.hagrid .acard{grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;padding:0}
+.hagrid .athumb{min-height:0;aspect-ratio:16/10}
+.hagrid .abody{padding:20px 22px 22px}
+.acard h3{margin:0;font-weight:700}
+.acard h3 a{color:var(--ink);text-decoration:none;transition:color .2s}
+.acard h3 a:hover{color:var(--p)}
+@media(max-width:900px){
+  .hagrid{grid-template-columns:minmax(0,1fr)}
+  .hagrid .acard{grid-template-columns:240px minmax(0,1fr);grid-template-rows:auto}
+  .hagrid .athumb{aspect-ratio:auto;min-height:190px}
+}
+@media(max-width:640px){
+  .hagrid .acard{grid-template-columns:minmax(0,1fr)}
+  .hagrid .athumb{aspect-ratio:16/9;min-height:0}
+  .hagrid .abody{padding:18px 20px 22px}
+}
