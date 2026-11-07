@@ -2,7 +2,9 @@
    Data perusahaan (nomor WhatsApp, email, alamat, maps, sosial media) ada di js/config.js */
 const WA_NUMBER = String(CONFIG.whatsapp || "").replace(/\D/g, "");
 const WA_MESSAGE = CONFIG.whatsappMessage;
-const waUrl = (t) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(t)}`;
+const waUrl = (t) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`${CONFIG.whatsappCode}
+
+${t}`)}`;
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
@@ -16,10 +18,10 @@ const map = $("#mapFrame"); if (map) map.src = CONFIG.mapsUrl;
 const soc = $("[data-social]");
 if (soc) soc.innerHTML = Object.entries(CONFIG.social).filter(([, u]) => u).map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener">${n[0].toUpperCase() + n.slice(1)}</a>`).join("") || "<span>Segera hadir</span>";
 
-/* Semua tombol WhatsApp: data-wa (pesan bisa diganti lewat data-msg) */
+/* Semua tombol WhatsApp: data-wa (kode + pesan dari js/config.js) */
 function bindWA() {
   $$("[data-wa]").forEach((a) => {
-    a.href = waUrl(a.dataset.msg || WA_MESSAGE);
+    a.href = waUrl(WA_MESSAGE);
     a.target = "_blank"; a.rel = "noopener";
     if ("txt" in a.dataset) a.textContent = CONFIG.phone || WA_NUMBER;
   });

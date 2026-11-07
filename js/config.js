@@ -3,7 +3,8 @@ const CONFIG = {
   company: "Cahaya Mustika Internesia",
   tagline: "Office Equipment Center",
   whatsapp: "628113301819",              // format internasional, tanpa + dan tanpa 0 di depan
-  whatsappMessage: "Halo, saya ingin berkonsultasi mengenai solusi dan produk digital signage. Saya menemukan informasi ini melalui website jualdigitalsignagejakarta.my.id.",
+  whatsappCode: "DSJ-MYID",                // kode penanda, otomatis di baris pertama setiap pesan WhatsApp
+  whatsappMessage: "Halo Cahaya Mustika Internesia, saya tertarik dengan produk Digital Signage.",
   phone: "+62 811-330-1819",
   email: "contact@cahayamustikainternesia.com",
   address: "Jl. Penjernihan II No.7, RT.11/RW.6, Bend. Hilir, Kec. Tanah Abang, Kota Jakarta Pusat, DKI Jakarta 10210",
