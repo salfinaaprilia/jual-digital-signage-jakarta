@@ -234,12 +234,12 @@
 
   const ag = document.getElementById("artgrid");
   /* Listing: daftar horizontal dengan pencarian & filter kategori. Artikel kategori Retail disembunyikan dari daftar (tetap ada untuk halaman detail). */
-  const LIST_MAX = 4, LIST_HIDE = ["Retail"], HOME_MAX = 3;
+  const LIST_MAX = 4, LIST_HIDE = ["Retail"], HOME_MAX = 4;
   const listed = () => window.ARTICLES.filter((a) => !LIST_HIDE.includes(a.cat));
   /* Beranda: artikel terbaru dari daftar yang sama dengan halaman Artikel */
   const ha = document.getElementById("homeart");
   if (ha) ha.innerHTML = listed().slice(0, HOME_MAX).map((a) => `<article class="acard">
-    <a class="athumb" href="article-detail.html?a=${a.id}" tabindex="-1" aria-hidden="true"><img src="${BASE}${small(a.img)}" srcset="${BASE}${small(a.img)} 640w, ${BASE}${a.img.replace(/(\.\w+)$/, "-800$1")} 800w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 900px) 240px, 380px" alt="" loading="lazy"></a>
+    <a class="athumb" href="article-detail.html?a=${a.id}" tabindex="-1" aria-hidden="true"><img src="${BASE}${small(a.img)}" srcset="${BASE}${small(a.img)} 640w, ${BASE}${a.img.replace(/(\.\w+)$/, "-800$1")} 800w" sizes="(max-width: 640px) calc(100vw - 40px), (max-width: 900px) 240px, (max-width: 1100px) 520px, 300px" alt="" loading="lazy"></a>
     <div class="abody"><div class="ameta"><time>${a.date}</time></div>
     <h3><a href="article-detail.html?a=${a.id}">${a.title}</a></h3><p>${a.excerpt}</p>
     <a class="abtn" href="article-detail.html?a=${a.id}">Baca Selengkapnya${ART_ARROW}</a></div></article>`).join("");

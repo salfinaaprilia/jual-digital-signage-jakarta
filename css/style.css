@@ -879,11 +879,13 @@ button{transition:background .2s,color .2s,border-color .2s}
 .pdet .pd{padding-bottom:8px}
 @media(max-width:960px){.pd .pdimg{position:static}.pdet .rel{margin-top:64px;padding-top:44px}}
 
-/* Beranda: Artikel Terbaru. Kartu yang sama dengan halaman Artikel, disusun tegak 3 kolom */
-.hagrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:36px}
+/* Beranda: Artikel Terbaru. Kartu yang sama dengan halaman Artikel, disusun tegak 4 kolom */
+.hagrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:36px}
 .hagrid .acard{grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr;padding:0}
 .hagrid .athumb{min-height:0;aspect-ratio:16/10}
-.hagrid .abody{padding:20px 22px 22px}
+.hagrid .abody{padding:18px 20px 20px}
+.hagrid .acard h3{font-size:16.5px}
+@media(max-width:1100px){.hagrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .acard h3{margin:0;font-weight:700}
 .acard h3 a{color:var(--ink);text-decoration:none;transition:color .2s}
 .acard h3 a:hover{color:var(--p)}
